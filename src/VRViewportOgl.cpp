@@ -20,10 +20,7 @@ VRViewportOgl::~VRViewportOgl() {
 bool VRViewportOgl::isOpen() {
 }
 
-void VRViewportOgl::use() {
-}
-
-void VRViewportOgl::release() {
+void VRViewportOgl::use(const MinVR::VRDisplayAction& action) {
 }
 
 void VRViewportOgl::startRendering(const MinVR::VRRenderer& renderer, int t) {
@@ -43,11 +40,11 @@ VRViewportFactoryOgl::~VRViewportFactoryOgl() {
 }
 
 std::vector<VRDisplayDevice*> VRViewportFactoryOgl::create(
-		const VRDataIndex& config, const std::string nameSpace,
+		VRDataIndex& config, const std::string nameSpace,
 		VRDisplayDeviceFactory* factory) {
 	std::vector<VRDisplayDevice*> v;
-	v.push_back(new VRViewportOgl(0,0,50,50));
-	v.push_back(new VRViewportOgl(100,100,200,300));
+	//v.push_back(new VRViewportOgl(0,0,50,50));
+	//v.push_back(new VRViewportOgl(100,100,200,300));
 	return v;
 }
 

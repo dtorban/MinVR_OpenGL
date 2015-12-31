@@ -19,8 +19,7 @@ public:
 	virtual ~VRViewportOgl();
 
 	bool isOpen();
-	void use();
-	void release();
+	void use(const MinVR::VRDisplayAction& action);
 	void finishRendering();
 
 protected:
@@ -35,7 +34,7 @@ public:
 	VRViewportFactoryOgl();
 	virtual ~VRViewportFactoryOgl();
 
-	std::vector<VRDisplayDevice*> create(const VRDataIndex& config, const std::string nameSpace, VRDisplayDeviceFactory* factory);
+	std::vector<VRDisplayDevice*> create(VRDataIndex& config, const std::string nameSpace, VRDisplayDeviceFactory* factory);
 };
 
 } /* namespace MinVR */
