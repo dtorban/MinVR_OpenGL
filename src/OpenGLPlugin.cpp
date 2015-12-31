@@ -9,6 +9,7 @@
 #include "plugin/Plugin.h"
 #include <iostream>
 #include "main/VRPluginInterface.h"
+#include "VRViewportOgl.h"
 
 namespace MinVR {
 
@@ -22,11 +23,13 @@ public:
 	}
 	PLUGIN_API bool registerPlugin(MinVR::PluginInterface *iface)
 	{
-		std::cout << "Registering GlfwPlugin with the following interface: " << iface->getName() << std::endl;
+		std::cout << "Registering OpenGLPlugin with the following interface: " << iface->getName() << std::endl;
 
 		VRPluginInterface* vrInterface = iface->getInterface<VRPluginInterface>();
 		if (vrInterface != NULL)
 		{
+			viewportFactory = new VRViewportFactoryOgl();
+			vrInterface->addVRDisplayDeviceFactory(viewportFactory);
 			return true;
 		}
 
@@ -34,9 +37,13 @@ public:
 	}
 	PLUGIN_API bool unregisterPlugin(MinVR::PluginInterface *iface)
 	{
-		std::cout << "Unregistering GlfwPlugin with the following interface: " << iface->getName() << std::endl;
+		std::cout << "Unregistering OpenGLPlugin with the following interface: " << iface->getName() << std::endl;
+		delete viewportFactory;
 		return true;
 	}
+
+private:
+	VRViewportFactoryOgl* viewportFactory;
 };
 
 }

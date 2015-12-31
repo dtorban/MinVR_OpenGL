@@ -9,9 +9,11 @@ endif()
 
 set (SOURCEFILES 
   src/OpenGLPlugin.cpp
+  src/VRViewportOgl.cpp
 )
 
 set (HEADERFILES
+  src/VRViewportOgl.h
 )
 
 source_group("Header Files" FILES ${HEADERFILES})
