@@ -29,12 +29,12 @@ private:
 	int x, y, width, height;
 };
 
-class VRViewportFactoryOgl : public VRDisplayDeviceFactory {
+class VRViewportFactoryOgl : public SimpleVRDisplayFactory {
 public:
 	VRViewportFactoryOgl();
 	virtual ~VRViewportFactoryOgl();
 
-	std::vector<VRDisplayDevice*> create(VRDataIndex& config, const std::string nameSpace, VRDisplayDeviceFactory* factory);
+	VRDisplayDevice* createDisplay(const std::string type, const std::string name, VRDataIndex& config, VRDisplayDeviceFactory* factory);
 };
 
 } /* namespace MinVR */
