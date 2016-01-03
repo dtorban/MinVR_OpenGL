@@ -27,10 +27,11 @@ void VRViewportOgl::startRendering(const MinVR::VRRenderer& renderer, int t) {
 	glEnable(GL_SCISSOR_TEST);
 	glViewport(x,y,width,height);
 	glScissor(x,y,width,height);
-	renderer.render();
+	startRenderingAllDisplays(renderer, t);
 }
 
 void VRViewportOgl::finishRendering() {
+	finishRenderingAllDisplays();
 }
 
 VRViewportFactoryOgl::VRViewportFactoryOgl() {
@@ -52,6 +53,21 @@ VRDisplayDevice* VRViewportFactoryOgl::createDisplay(const std::string type, con
 	return NULL;
 }
 
-} /* namespace MinVR */
+int VRViewportOgl::getXOffset() {
+	return x;
+}
 
+int VRViewportOgl::getYOffset() {
+	return y;
+}
+
+int VRViewportOgl::getWidth() {
+	return width;
+}
+
+int VRViewportOgl::getHeight() {
+	return height;
+}
+
+} /* namespace MinVR */
 

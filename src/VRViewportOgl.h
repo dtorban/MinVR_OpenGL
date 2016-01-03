@@ -18,6 +18,11 @@ public:
 	VRViewportOgl(int x, int y, int width, int height);
 	virtual ~VRViewportOgl();
 
+	int getXOffset();
+	int getYOffset();
+	int getWidth();
+	int getHeight();
+
 	bool isOpen();
 	void use(const MinVR::VRDisplayAction& action);
 	void finishRendering();
