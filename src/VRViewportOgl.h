@@ -23,7 +23,6 @@ public:
 	int getWidth();
 	int getHeight();
 
-	bool isOpen();
 	void use(const MinVR::VRDisplayAction& action);
 	void finishRendering();
 
@@ -32,14 +31,6 @@ protected:
 
 private:
 	int x, y, width, height;
-};
-
-class VRViewportFactoryOgl : public SimpleVRDisplayFactory {
-public:
-	VRViewportFactoryOgl();
-	virtual ~VRViewportFactoryOgl();
-
-	VRDisplayDevice* createDisplay(const std::string type, const std::string name, VRDataIndex& config, VRDisplayDeviceFactory* factory);
 };
 
 } /* namespace MinVR */

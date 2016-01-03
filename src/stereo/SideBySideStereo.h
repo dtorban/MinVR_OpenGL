@@ -10,6 +10,7 @@
 #define SIDEBYSIDESTEREO_H_
 
 #include "display/VRDisplayDevice.h"
+#include "VRViewportOgl.h"
 
 namespace MinVR {
 
@@ -18,13 +19,19 @@ public:
 	SideBySideStereo();
 	virtual ~SideBySideStereo();
 
-	bool isOpen();
+	int getXOffset();
+	int getYOffset();
+	int getWidth();
+	int getHeight();
+
 	void use(const MinVR::VRDisplayAction& action);
 	void finishRendering();
 
 protected:
 	void startRendering(const MinVR::VRRenderer& renderer, int x);
 
+private:
+	int x, y, width, height;
 };
 
 } /* namespace MinVR */

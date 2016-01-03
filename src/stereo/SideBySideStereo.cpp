@@ -17,9 +17,6 @@ SideBySideStereo::SideBySideStereo() {
 SideBySideStereo::~SideBySideStereo() {
 }
 
-bool SideBySideStereo::isOpen() {
-}
-
 void SideBySideStereo::use(const MinVR::VRDisplayAction& action) {
 }
 
@@ -27,21 +24,39 @@ void SideBySideStereo::finishRendering() {
 	finishRenderingAllDisplays();
 }
 
+int SideBySideStereo::getXOffset() {
+	return x;
+}
+
+int SideBySideStereo::getYOffset() {
+	return y;
+}
+
+int SideBySideStereo::getWidth() {
+	return width;
+}
+
+int SideBySideStereo::getHeight() {
+	return height;
+}
+
 void SideBySideStereo::startRendering(const MinVR::VRRenderer& renderer,
 		int t) {
 	glEnable(GL_SCISSOR_TEST);
 
-	int x = getXOffset();
-	int y = getYOffset();
-	int width = getWidth();
-	int height = getHeight();
+	x = getParent()->getXOffset();
+	y = getParent()->getYOffset();
+	width = getParent()->getWidth()/2;
+	height = getParent()->getHeight();
 
-	glViewport(x,y,width/2,height);
-	glScissor(x,y,width/2,height);
+	glViewport(x,y,width,height);
+	glScissor(x,y,width,height);
 	startRenderingAllDisplays(renderer, t);
 
-	glViewport(x+width/2,y,width/2,height);
-	glScissor(x+width/2,y,width/2,height);
+	x = x + width;
+
+	glViewport(x,y,width,height);
+	glScissor(x,y,width,height);
 	startRenderingAllDisplays(renderer, t);
 }
 

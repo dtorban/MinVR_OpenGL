@@ -17,40 +17,18 @@ VRViewportOgl::VRViewportOgl(int x, int y, int width, int height) : x(x), y(y), 
 VRViewportOgl::~VRViewportOgl() {
 }
 
-bool VRViewportOgl::isOpen() {
-}
-
 void VRViewportOgl::use(const MinVR::VRDisplayAction& action) {
 }
 
 void VRViewportOgl::startRendering(const MinVR::VRRenderer& renderer, int t) {
 	glEnable(GL_SCISSOR_TEST);
-	glViewport(x,y,width,height);
-	glScissor(x,y,width,height);
+	glViewport(x + getParent()->getXOffset(),y + getParent()->getYOffset(),width,height);
+	glScissor(x + getParent()->getXOffset(),y + getParent()->getYOffset(),width,height);
 	startRenderingAllDisplays(renderer, t);
 }
 
 void VRViewportOgl::finishRendering() {
 	finishRenderingAllDisplays();
-}
-
-VRViewportFactoryOgl::VRViewportFactoryOgl() {
-}
-
-VRViewportFactoryOgl::~VRViewportFactoryOgl() {
-}
-
-VRDisplayDevice* VRViewportFactoryOgl::createDisplay(const std::string type, const std::string name, VRDataIndex& config, VRDisplayDeviceFactory* factory)
-{
-	if (type == "viewport")
-	{
-		int width = config.getValue("width", name);
-		int height = config.getValue("height", name);
-
-		return new VRViewportOgl(0,0,width,height);
-	}
-
-	return NULL;
 }
 
 int VRViewportOgl::getXOffset() {
