@@ -9,6 +9,7 @@
 #include <DisplayFactoryOgl.h>
 #include "VRViewportOgl.h"
 #include "stereo/SideBySideStereo.h"
+#include "stereo/QuadbufferStereo.h"
 #include <iostream>
 
 namespace MinVR {
@@ -37,6 +38,10 @@ VRDisplayDevice* DisplayFactoryOgl::createDisplay(const std::string type,
 	else if (type == "sideBySideStereo")
 	{
 		return new SideBySideStereo();
+	}
+	else if (type == "quadbufferStereo")
+	{
+		return new QuadbufferStereo();
 	}
 
 	return NULL;

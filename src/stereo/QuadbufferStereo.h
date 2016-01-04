@@ -6,33 +6,27 @@
  * 		Dan Orban (dtorban)
  */
 
-#ifndef SIDEBYSIDESTEREO_H_
-#define SIDEBYSIDESTEREO_H_
+#ifndef QUADBUFFERSTEREO_H_
+#define QUADBUFFERSTEREO_H_
 
 #include "display/VRDisplayDevice.h"
 
 namespace MinVR {
 
-class SideBySideStereo : public VRDisplayDevice {
+class QuadbufferStereo : public VRDisplayDevice {
 public:
-	SideBySideStereo();
-	virtual ~SideBySideStereo();
+	QuadbufferStereo();
+	virtual ~QuadbufferStereo();
 
-	int getXOffset();
-	int getYOffset();
-	int getWidth();
-	int getHeight();
+	bool isQuadbuffered() { return true; }
 
 	void use(const MinVR::VRDisplayAction& action);
 	void finishRendering();
 
 protected:
 	void startRendering(const MinVR::VRRenderer& renderer, int x);
-
-private:
-	int x, y, width, height;
 };
 
 } /* namespace MinVR */
 
-#endif /* SIDEBYSIDESTEREO_H_ */
+#endif /* QUADBUFFERSTEREO_H_ */

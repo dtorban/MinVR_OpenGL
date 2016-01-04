@@ -8,6 +8,7 @@ if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 endif()
 
 set (SOURCEFILES 
+  src/stereo/QuadbufferStereo.cpp
   src/stereo/SideBySideStereo.cpp
   src/DisplayFactoryOgl.cpp
   src/OpenGLPlugin.cpp
@@ -15,6 +16,7 @@ set (SOURCEFILES
 )
 
 set (HEADERFILES
+  src/stereo/QuadbufferStereo.h
   src/stereo/SideBySideStereo.h
   src/DisplayFactoryOgl.h
   src/VRViewportOgl.h

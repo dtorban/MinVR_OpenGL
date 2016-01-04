@@ -43,6 +43,7 @@ int SideBySideStereo::getHeight() {
 void SideBySideStereo::startRendering(const MinVR::VRRenderer& renderer,
 		int t) {
 	glEnable(GL_SCISSOR_TEST);
+	glDrawBuffer(GL_BACK);
 
 	x = getParent()->getXOffset();
 	y = getParent()->getYOffset();
