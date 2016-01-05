@@ -17,9 +17,6 @@ VRViewportOgl::VRViewportOgl(int x, int y, int width, int height) : x(x), y(y), 
 VRViewportOgl::~VRViewportOgl() {
 }
 
-void VRViewportOgl::use(const MinVR::VRDisplayAction& action) {
-}
-
 void VRViewportOgl::startRendering(const MinVR::VRRenderer& renderer, int t) {
 	glEnable(GL_SCISSOR_TEST);
 	int xOffset = x + getParent()->getXOffset();

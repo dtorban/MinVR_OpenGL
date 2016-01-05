@@ -20,7 +20,6 @@ public:
 
 	bool isQuadbuffered() { return true; }
 
-	void use(const MinVR::VRDisplayAction& action);
 	void finishRendering();
 
 protected:

@@ -23,7 +23,6 @@ public:
 	int getWidth();
 	int getHeight();
 
-	void use(const MinVR::VRDisplayAction& action);
 	void finishRendering();
 
 protected:

@@ -17,9 +17,6 @@ QuadbufferStereo::QuadbufferStereo() {
 QuadbufferStereo::~QuadbufferStereo() {
 }
 
-void QuadbufferStereo::use(const MinVR::VRDisplayAction& action) {
-}
-
 void QuadbufferStereo::startRendering(const MinVR::VRRenderer& renderer,
 		int x) {
 	glDrawBuffer(GL_BACK_LEFT);

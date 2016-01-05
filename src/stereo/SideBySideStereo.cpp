@@ -17,9 +17,6 @@ SideBySideStereo::SideBySideStereo() {
 SideBySideStereo::~SideBySideStereo() {
 }
 
-void SideBySideStereo::use(const MinVR::VRDisplayAction& action) {
-}
-
 void SideBySideStereo::finishRendering() {
 	finishRenderingAllDisplays();
 }
